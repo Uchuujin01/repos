@@ -1,0 +1,3 @@
+﻿  test04.cpp
+c:\users\a.kuznetsov\source\repos\test04\test04\test04.cpp(12): warning C4804: '<=': unsafe use of type 'bool' in operation
+  test04.vcxproj -> C:\Users\a.kuznetsov\source\repos\test04\Debug\test04.exe

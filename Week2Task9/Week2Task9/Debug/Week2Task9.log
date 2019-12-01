@@ -1,0 +1,4 @@
+﻿  Week2Task9.cpp
+c:\users\a.kuznetsov\source\repos\week2task9\week2task9\week2task9.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\a.kuznetsov\source\repos\week2task9\week2task9\week2task9.cpp(47): warning C4018: '<': signed/unsigned mismatch
+  Week2Task9.vcxproj -> C:\Users\a.kuznetsov\source\repos\Week2Task9\Debug\Week2Task9.exe
