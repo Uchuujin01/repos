@@ -1,0 +1,2 @@
+﻿  Week3Test1.cpp
+c:\users\a.kuznetsov\source\repos\week3test1\week3test1\week3test1.cpp(18): error C4700: uninitialized local variable 'value' used
