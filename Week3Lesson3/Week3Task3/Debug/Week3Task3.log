@@ -1,0 +1,4 @@
+﻿  Week3Task3.cpp
+c:\users\a.kuznetsov\source\repos\week3task3\week3task3\week3task3.cpp(25): warning C4018: '<': signed/unsigned mismatch
+c:\users\a.kuznetsov\source\repos\week3task3\week3task3\week3task3.cpp(26): warning C4018: '<': signed/unsigned mismatch
+  Week3Task3.vcxproj -> C:\Users\a.kuznetsov\source\repos\Week3Task3\Debug\Week3Task3.exe
