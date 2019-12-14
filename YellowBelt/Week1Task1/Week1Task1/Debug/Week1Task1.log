@@ -1,0 +1,5 @@
+﻿  Week1Task1.cpp
+c:\users\a.kuznetsov\source\repos\yellowbelt\week1task1\week1task1\week1task1.cpp(47): warning C4018: '>': signed/unsigned mismatch
+c:\users\a.kuznetsov\source\repos\yellowbelt\week1task1\week1task1\week1task1.cpp(50): warning C4018: '>': signed/unsigned mismatch
+c:\users\a.kuznetsov\source\repos\yellowbelt\week1task1\week1task1\week1task1.cpp(126): warning C4172: returning address of local variable or temporary: result
+  Week1Task1.vcxproj -> C:\Users\a.kuznetsov\source\repos\YellowBelt\Week1Task1\Debug\Week1Task1.exe
