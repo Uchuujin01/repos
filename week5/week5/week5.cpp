@@ -227,14 +227,16 @@ vector<string> DateParse(string& str) {
 			}
 			++it;
 		} while (it != str.end());
-		stringOut.push_back(s);
-
+		
+		if (s.size() > 0) {
+			stringOut.push_back(s);
+		}
 
 		if ((stringOut.size() == 3) && (delimiterCount == 2)) {
 			for (int j = 0; j < stringOut.size(); ++j) {
 				for (int i = 0; i < stringOut[j].size(); ++i) {
 					if (!((stringOut[j][i] < ':') && (stringOut[j][i] > '/'))) {
-						if ((j == 0) && (i == 0)) {
+						if ((i == 0)) {
 							if (stringOut[j][i] != '-') {
 								if (stringOut[j][i] != '+') {
 									throw invalid_argument(str);
@@ -253,6 +255,7 @@ vector<string> DateParse(string& str) {
 		}
 		return stringOut;
 }
+
 int main() {
   Database db;
   string command;
@@ -262,56 +265,63 @@ int main() {
 	  commandParsed.clear();
 	  commandParsed = CommandParse(command);
 	  bool isError = false;
+	  vector<string> dateIn;
 
-	  if (commandParsed[0] == "Add") {
-		  vector<string> dateIn;
-		  try {
-			  dateIn = DateParse(commandParsed[1]);
-		  } catch (exception& e) {
-			  cout << "Wrong date format: " << e.what() << endl;
-			  isError = true;
-		  }
-		  if (!isError) {
-			  Date date(dateIn);
-			  if (!date.isValidMonth()) {
-				  cout << "Month value is invalid: " << date.GetMonth() << endl;
-			  }
-			  else if (!date.isValidDay()) {
-				  cout << "Day value is invalid: " << date.GetDay() << endl;
-			  }
-			  else {
-				  string event = commandParsed[2];
-				  db.AddEvent(date, event);
-			  }
-		  }
-	  }
-	  else if (commandParsed[0] == "Del") {
-		  Date date(DateParse(commandParsed[1]));
-		  if (commandParsed.size() > 2) {
-			  string event = commandParsed[2];
-			  if (db.DeleteEvent(date, event)) {
-				  cout << "Deleted successfully" << endl;
-			  }
-			  else {
-				  cout << "Event not found" << endl;
-			  }
-		  }
-		  else {
-			  cout << "Deleted " << db.DeleteDate(date) << " events" << endl;
-		  }
-	  }
-	  else if (commandParsed[0] == "Find") {
-		  Date date(DateParse(commandParsed[1]));	  
-			  db.Find(date);
-	  }
+	  if (commandParsed[0] == "empty") {
+
+	  } 
 	  else if (commandParsed[0] == "Print") {
 		  db.Print();
 	  }
-	  else if (commandParsed[0] == "empty") {
-
+	  else if ((commandParsed[0] != "Add") && (commandParsed[0] != "Del") && (commandParsed[0] != "Find")) {
+		  cout << "Unknown command: " << commandParsed[0] << endl;
 	  }
 	  else {
-		  cout << "Unknown command: " << commandParsed[0] << endl;
+		  try {
+			  dateIn = DateParse(commandParsed[1]);
+		  }
+		  catch (exception & e) {
+			  cout << "Wrong date format: " << e.what() << endl;
+			  isError = true;
+		  }
+	
+			  if (!isError) {
+				  Date date(dateIn);
+				  if (!date.isValidMonth()) {
+					  cout << "Month value is invalid: " << date.GetMonth() << endl;
+					  isError = true;
+				  }
+				  else if (!date.isValidDay()) {
+					  cout << "Day value is invalid: " << date.GetDay() << endl;
+					  isError = true;
+				  }
+				  if (!isError) {
+					  if (commandParsed[0] == "Add") {
+
+						  string event = commandParsed[2];
+						  db.AddEvent(date, event);
+
+					  }
+					  else if (commandParsed[0] == "Del") {
+
+						  if (commandParsed.size() > 2) {
+							  string event = commandParsed[2];
+							  if (db.DeleteEvent(date, event)) {
+								  cout << "Deleted successfully" << endl;
+							  }
+							  else {
+								  cout << "Event not found" << endl;
+							  }
+						  }
+						  else {
+							  cout << "Deleted " << db.DeleteDate(date) << " events" << endl;
+						  }
+					  }
+					  else if (commandParsed[0] == "Find") {
+						  db.Find(date);
+					  }
+				  }
+			  }
 	  }
   }
 

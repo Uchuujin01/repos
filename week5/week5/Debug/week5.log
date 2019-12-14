@@ -1,1 +1,5 @@
-﻿  week5.vcxproj -> C:\Users\Uchuujin\source\repos\week5\Debug\week5.exe
+﻿  week5.cpp
+C:\Users\Uchuujin\source\repos\week5\week5\week5.cpp(125,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Uchuujin\source\repos\week5\week5\week5.cpp(236,22): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Uchuujin\source\repos\week5\week5\week5.cpp(237,23): warning C4018: '<': signed/unsigned mismatch
+  week5.vcxproj -> C:\Users\Uchuujin\source\repos\week5\Debug\week5.exe
